@@ -62,17 +62,18 @@ main {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0px;
+    margin-left: 20px;
 }
 
 h4 {
-    margin-top: 50px;
+    margin-top: 60px;
     margin-bottom: -10px;
     font-size: 14px;
     font-weight: 400;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
     margin: 0px;
 }
@@ -89,10 +90,12 @@ span {
 
 .weather-temperature-container {
     display: flex;
+    margin-right: 20px;
 }
 
 .material-symbols-rounded {
-    font-size: 140px;
+    margin-top: 90px;
+    transform: scale(4,4);
     color: #E5FD76;
     font-variation-settings:
         'FILL' 0,
@@ -101,11 +104,10 @@ span {
         'opsz' 24
 }
 
-
 .weather-app-temperature {
     font-size: 140px;
     font-weight: 800;
-    margin-left: 15px;
+    margin-left: 45px;
 }
 
 .weather-app-unit {
