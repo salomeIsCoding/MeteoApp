@@ -3,10 +3,14 @@ function displayWeather (response) {
     let temperature = Math.round(response.data.temperature.current);
     let cityElement = document.querySelector ("h1");
     let descriptionElement = document.querySelector("#description");
+    let windElement = document.querySelector ("#wind");
+    let humidityElement = document.querySelector("#humidity");
     
     temperatureElement.innerHTML = temperature;
     cityElement.innerHTML = response.data.city;
     descriptionElement.innerHTML = response.data.condition.description;
+    windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+    humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 
 }
 
