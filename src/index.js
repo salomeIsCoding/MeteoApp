@@ -5,13 +5,17 @@ function displayWeather (response) {
     let descriptionElement = document.querySelector("#description");
     let windElement = document.querySelector ("#wind");
     let humidityElement = document.querySelector("#humidity");
+    let timeElement = document.querySelector("#time");
+    let date = new Date(response.data.time*1000);
     
+    console.log(response.data);
+
     temperatureElement.innerHTML = temperature;
     cityElement.innerHTML = response.data.city;
     descriptionElement.innerHTML = response.data.condition.description;
     windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
     humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-
+    timeElement.innerHTML = formatDate(date);
 }
 
 function searchCity(city){
@@ -33,38 +37,25 @@ form.addEventListener("submit", searchEngine);
 // c'est la ville qui apparaît quand la page s'ouvre
 searchCity("Berlin");
 
-// function currentDate (date) {
-//     let date = new Date();
-//     let months = [
-//         "January",
-//         "February",
-//         "March",
-//         "April",
-//         "June",
-//         "July",
-//         "August",
-//         "September",
-//         "October",
-//         "November",
-//         "December",
-//     ];
-//     let month = months[date.getMonth()];
-//     let days = [
-//         "Sunday",
-//         "Monday",
-//         "Tuesday",
-//         "Wednesday",
-//         "Thursday",
-//         "Friday",
-//         "Saturday",
-//     ];
-//     let day = days[date.getDay()];
-//     let hours = date.getHours();
-//     if (hours < 10){
-//         hours = `0${hours}`;
-//      }  
-//      let minutes = date.getMinutes();
-//      if (minutes < 10){
-//         minutes = `0${minutes}`;
-//      }
-// }
+function formatDate (date) {
+    let minutes = date.getMinutes();
+        if (minutes < 10){
+         minutes = `0${minutes}`;
+        }
+    let hours = date.getHours();
+        if (hours < 10){
+            hours = `0${hours}`;
+        }  
+    
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    let day = days[date.getDay()];
+    return `${day}, ${hours}:${minutes}`;
+}
