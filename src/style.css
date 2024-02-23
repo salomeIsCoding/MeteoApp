@@ -86,6 +86,12 @@ p {
 span {
     color: #E5FD76;
     font-weight: 400;
+    font-size: 14px;
+}
+
+.description {
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .weather-temperature-container {
